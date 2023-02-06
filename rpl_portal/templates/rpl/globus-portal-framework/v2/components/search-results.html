@@ -1,0 +1,33 @@
+{# myportal/templates/globus-portal-framework/v2/components/search-results.html #}
+<div>
+  {% for result in search.search_results %}
+  <div class="card my-3">
+    <div class="card-header">
+      <h3 class="search-title">
+        <a href="{% url 'detail' globus_portal_framework.index result.subject %}">{{result.title|default:'Result'}}</a>
+      </h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-sm borderless">
+        <tbody>
+        <tr>
+          {{search_results}}
+          {% for item in result.search_results %}
+          <th>{{item.title}}</th>
+          {% endfor %}
+        </tr>
+        <tr>
+          {% for item in result.search_results %}
+          {% if item.type == "date" %}
+          <th>{{item.value | date:"DATETIME_FORMAT"}}</th>
+          {% else %}
+          <th>{{item.value}}</th>
+          {% endif %}
+          {% endfor %}
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+</div>
