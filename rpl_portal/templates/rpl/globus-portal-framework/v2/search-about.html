@@ -1,0 +1,42 @@
+{% extends 'globus-portal-framework/v2/search-about.html' %}
+
+{% block body %}
+
+<div class="row">
+  <div class="col">
+    <h2 class="text-center mt-3 mb-5">{{project_title}}</h2>
+  </div>
+</div>
+
+
+<div class="row mb-5">
+  <div class="col"></div>
+  <div class="col-10">
+
+    <div>
+      {% block landing_page_about %}
+      
+      <h2>RPL @ APS</h2>
+
+      <p>
+        This is the RPL project. Raf should fill in some details here!
+      </p>
+
+      <img src="https://g-7581c.fd635.8443.data.globus.org/portal/public/APS_aerial.jpeg" width="50%">
+      
+      {% endblock %}
+    </div>
+    <div>
+      <h1>Data Access</h1>
+      {% block landing_page_data_access %}
+      <p class="lead font-weight-bolder">Search results are limited to members of the {{project_title}} Group.</p>
+        <a class="btn btn-primary" target="_blank" href="https://app.globus.org/groups/{{globus_portal_framework.index_data.group}}/about">
+          Request Access to {{project_title}} Group
+        </a>
+      {% endblock %}
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
+
+{% endblock %}
