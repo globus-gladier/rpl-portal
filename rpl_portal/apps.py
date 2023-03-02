@@ -23,10 +23,10 @@ SEARCH_INDEXES = {
         "description": ("RPL portal"),
         "fields": [
             ("title", fields.title),
-            ("globus_app_link", fields.globus_app_link),
             "dc",
-            ("copy_to_clipboard_link", fields.https_url),
-            ("search_results", fields.search_results),
+            "files",
+            ("final_plate",fields.final_plate),
+            ("all_files",fields.all_files)
         ],
         "facets": [
             {
