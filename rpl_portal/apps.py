@@ -25,8 +25,9 @@ SEARCH_INDEXES = {
             ("title", fields.title),
             "dc",
             "files",
-            ("final_plate",fields.final_plate),
-            ("all_files",fields.all_files)
+            ("final_plates",fields.final_plates),
+            ("all_files",fields.all_files),
+            ("result", fields.results)
         ],
         "facets": [
             {

@@ -1,6 +1,7 @@
 import os
 from urllib.parse import urlsplit, urlunsplit, urlencode
 import copy
+import re
 
 def title(result):
     if not result[0].get("dc"):
@@ -18,9 +19,13 @@ def all_files(result):
         new_files.append(new_url)
     return new_files
 
-def final_plate(result):
+def final_plates(result):
     for f in all_files(result):
-        if 'results/final_image' in f:
+        fs = []
+        if 'final_image' or 'plate_' in f:
             print(f)
-            return f
+            fs.append(f)
+    return fs
     return None
+def results(result):
+    return result[0]["project_metadata"]

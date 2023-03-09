@@ -1,0 +1,41 @@
+<table class="table table-striped table-bordered">
+  <tbody>
+  {% block detail_general_metadata %}
+  
+  {% for key, value in result.items %}
+  {% if key != "wf_steps" and key != "project-slug"%}
+  <tr>
+    
+    <td>{{key}}</td>
+    <td>{{value}}</td>
+   
+  </tr>
+  
+    {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+<table class="table table-striped table-bordered">
+  wf_steps
+  <tbody>
+     
+    {% for flows in result.wf_steps %}
+          {% for step in flows%}  
+          <tr><td>{{step.name}}</td>
+  <td>
+            {% for tkey, tvalue in step.items %}
+  
+  {% if tkey != name%}
+    {{tkey}}:{{tvalue}} <br></br>
+    {% endif %}
+    {% endfor %}
+  </td>
+  </tr>
+    {% endfor %}
+  {% endfor %}
+ 
+</tbody>
+</table>
+  {% endblock %}
+  
+ 
