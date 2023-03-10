@@ -43,6 +43,11 @@ SEARCH_INDEXES = {
             
         ],
         "facet_modifiers": [],
+        "sort" : [
+             {'field_name': 'dc.dates.date', 
+                    'order': 'desc'
+            }
+        ],
         "default_filters": [
             {
                 "type": "match_all",

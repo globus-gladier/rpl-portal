@@ -27,11 +27,9 @@ def final_plates(result):
        
         if re.match(".*plate_.\.jpg", f):
             
-            print(str(re.match(".*plate_.\.jpg", f)))
-            print()
-            print(f)
+          
             fs[f.split('/')[-1]] = f
-    print(fs)
+    
     return fs
     return None
 def results(result):
