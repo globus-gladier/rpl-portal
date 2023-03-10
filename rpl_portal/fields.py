@@ -20,11 +20,18 @@ def all_files(result):
     return new_files
 
 def final_plates(result):
+    fs = {}
     for f in all_files(result):
-        fs = []
-        if 'final_image' or 'plate_' in f:
+        
+     
+       
+        if re.match(".*plate_.\.jpg", f):
+            
+            print(str(re.match(".*plate_.\.jpg", f)))
+            print()
             print(f)
-            fs.append(f)
+            fs[f.split('/')[-1]] = f
+    print(fs)
     return fs
     return None
 def results(result):

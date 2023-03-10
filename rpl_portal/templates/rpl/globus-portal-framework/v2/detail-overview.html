@@ -7,16 +7,17 @@
   <div class="col-md-6">
     {% include './components/detail-dc-metadata2.html' %}
   </div>
-  <div>
    
-  </div>
-  <div class="col-md-6">
+    <div class="col-md-6">
+  {% for key, value in final_plates.items%}
+  
     
-    {% for plate in final_plates%}
-    
-    <img src={{plate}} width="50%">
-    {% endfor %}
+   <div style="padding-bottom:20px"> 
+    <h1>{{key}}</h1>
+    <img src={{value}} width="50%" >
   </div>
+  
+  {% endfor %}
 </div>
 
 {% endblock %}

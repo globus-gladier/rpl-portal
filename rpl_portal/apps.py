@@ -40,14 +40,16 @@ SEARCH_INDEXES = {
                 "type": "date_histogram",
                 "date_interval": "day",
             },
+            
         ],
         "facet_modifiers": [],
         "default_filters": [
             {
                 "type": "match_all",
                 "field_name": "project_metadata.project-slug",
-                "values": [],
+                "values": ['reports'],
             }
-        ],
+        ]
+        
     }
 }
