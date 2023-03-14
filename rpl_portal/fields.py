@@ -32,5 +32,20 @@ def final_plates(result):
     
     return fs
     return None
+def final_img(result):
+    fs = {}
+    for f in all_files(result):
+           if re.match(".*final_image.jpg", f):
+               return f
+    return fs
+    return None
 def results(result):
     return result[0]["project_metadata"]
+def exp_type(result):
+    if "exp_type" in result[0]["project_metadata"]:
+       return result[0]["project_metadata"]["exp_type"]
+    return "tests"
+# def exp_label(result):
+#     if result[0]["project_metadata"]["exp_label"]:
+#         return result[0]["project_metadata"]["exp_label"]
+#     return None

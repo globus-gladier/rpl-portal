@@ -27,7 +27,11 @@ SEARCH_INDEXES = {
             "files",
             ("final_plates",fields.final_plates),
             ("all_files",fields.all_files),
-            ("result", fields.results)
+            ("exp_type",fields.exp_type),
+            ("result", fields.results),
+            ("final_img", fields.final_img)
+
+            #("exp_label", fields.exp_label)
         ],
         "facets": [
             {
@@ -40,7 +44,11 @@ SEARCH_INDEXES = {
                 "type": "date_histogram",
                 "date_interval": "day",
             },
-            
+              {
+                  "name": "Experiment Type",
+                  "field_name": "title",
+    
+              }
         ],
         "facet_modifiers": [],
         "sort" : [
