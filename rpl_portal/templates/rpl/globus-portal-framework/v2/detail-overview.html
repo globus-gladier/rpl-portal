@@ -11,30 +11,13 @@
 {% if exp_type == Null or exp_type == "color_picker"%}   
     <div class="col-md-6">
   {% for key, value in final_plates.items%}
-  {%  if key != "runs" %}
+ 
     
    <div style="padding-bottom:20px"> 
     <h1>{{key}}</h1>
-    {% if key == "runs" %}
-    asdf
-    {% endif %}
     <img src={{value}} width="50%" >
   </div>
-  {% else %}
-  {{result}}
-
-  {%for run in value%}
-  <div>  
-    asdfasdf
-  {%for runkey, runvalue in run %}
-    
-      {{runkey}}: runvalue <br><br>
-
-      {% endfor %}
-    </div>
-      {% endfor %}
-{% endif %}
-    {% endfor %}
+{% endfor %}
 {% elif exp_type == "pcr" %}
 <div class="col-md-6">
   

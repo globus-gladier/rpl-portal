@@ -3,14 +3,42 @@
   {% block detail_general_metadata %}
  
   {% for key, value in result.items %}
-  {% if key != "wf_steps" and key != "project-slug" %}
+  {% if key != "wf_steps" and key != "project-slug" and key != "runs" %}
   <tr>
     
     <td>{{key}}</td>
     <td>{{value}}</td>
    
   </tr>
-  
+  {% elif key == "runs" %}
+  <tr>
+    
+    <td>{{key}}</td>
+   <td> 
+  {%for run in value%}
+ 
+    <table class="table table-striped table-bordered">
+      <tbody>
+   
+  {%for runkey, runvalue in run.items %}
+  <tr>  
+    <td>{{runkey}}</td>
+    <td> {{runvalue}} </td> 
+    </tr>
+      {% endfor %}
+    
+     
+    </tbody>
+    </table>
+
+ 
+
+   
+      {% endfor %}
+ </td>
+</tr>
+
+
     {% endif %}
   {% endfor %}
   </tbody>
