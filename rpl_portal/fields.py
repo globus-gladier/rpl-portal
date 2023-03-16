@@ -33,7 +33,7 @@ def final_plates(result):
         
      
        
-        if re.match(".*plate_.\.jpg", f):
+        if re.match(".*plate_.\.jpg", f) or re.match(".*run_summary\.png", f):
             
           
             fs[f.split('/')[-1]] = f
