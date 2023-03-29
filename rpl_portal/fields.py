@@ -57,7 +57,7 @@ def real_plates(result):
         
      
        
-        if re.match(".*real_plate1.\.png", f):
+        if re.match(".*real_plate.\.png", f):
             
           
           fs.append(f)
