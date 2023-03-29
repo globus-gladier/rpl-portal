@@ -48,7 +48,7 @@ def exp_plates(result):
        
         if re.match(".*exp_plate.\.png", f):
             
-          fs.append(f)
+            fs = [f] + fs
     
     return fs
 def real_plates(result):
@@ -60,7 +60,7 @@ def real_plates(result):
         if re.match(".*real_plate.\.png", f):
             
           
-          fs.append(f)
+          fs = [f] + fs
     
     return fs
 
