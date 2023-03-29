@@ -29,7 +29,11 @@ SEARCH_INDEXES = {
             ("all_files",fields.all_files),
             ("exp_type",fields.exp_type),
             ("result", fields.results),
-            ("final_img", fields.final_img)
+            ("final_img", fields.final_img),
+            ("target_color", fields.target_color),
+            ("best_color", fields.best_color),
+            ("real_plates", fields.real_plates),
+            ("exp_plates", fields.exp_plates)
 
             #("exp_label", fields.exp_label)
         ],

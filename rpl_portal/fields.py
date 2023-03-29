@@ -40,6 +40,53 @@ def final_plates(result):
     
     return fs
     return None
+def exp_plates(result):
+    fs = []
+    for f in all_files(result):
+        
+     
+       
+        if re.match(".*exp_plate.\.png", f):
+            
+          fs.append(f)
+    
+    return fs
+def real_plates(result):
+    fs = []
+    for f in all_files(result):
+        
+     
+       
+        if re.match(".*real_plate1.\.png", f):
+            
+          
+          fs.append(f)
+    
+    return fs
+
+
+def target_color(result):
+    fs = {}
+    for f in all_files(result):
+        
+     
+       
+        if re.match(".*target_color\.png", f):
+            
+          return f
+
+    
+    return fs
+
+def best_color(result):
+    fs = {}
+    for f in all_files(result):
+        
+        if re.match(".*best_color\.png", f):
+            
+          
+            return f
+    return fs
 def final_img(result):
     fs = {}
     for f in all_files(result):
