@@ -14,7 +14,7 @@ SEARCH_INDEXES = {
     "rpl": {
         "uuid": "aefcecc6-e554-4f8c-a25b-147f23091944",
         "name": "RPL Index",
-        "group": "f08083f3-db94-11ec-9616-51db4d10f5bd",
+        "group": "dda56f31-53d1-11ed-bd8b-0db7472df7d6",
         "collection": "bb8d048a-2cad-4029-a9c7-671ec5d1f84d",
         "base_templates": "globus-portal-framework/v2/",
         "template_override_dir": "rpl",
