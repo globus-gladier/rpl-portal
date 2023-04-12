@@ -33,7 +33,7 @@ def final_plates(result):
         
      
        
-        if re.match(".*plate_.\.jpg", f) or re.match(".*run_summary\.png", f):
+        if re.match(".*plate_.\.jpg", f):
             
           
             fs[f.split('/')[-1]] = f
@@ -46,10 +46,10 @@ def exp_plates(result):
         
      
        
-        if re.match(".*exp_plate.\.png", f):
+        if re.match(".*expected\.png", f):
             
             fs = [f] + fs
-    
+    fs.sort(reverse=True)
     return fs
 def real_plates(result):
     fs = []
@@ -57,11 +57,11 @@ def real_plates(result):
         
      
        
-        if re.match(".*real_plate.\.png", f):
+        if re.match(".*measured\.png", f):
             
           
           fs = [f] + fs
-    
+    fs.sort(reverse=True)
     return fs
 
 
