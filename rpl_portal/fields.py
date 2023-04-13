@@ -50,7 +50,7 @@ def exp_plates(result):
             
             fs = [f] + fs
     fs.sort(reverse=True, key=lambda x: int(re.search("\d+", x.split("/")[-1]).group()))
-    print(fs)
+
     return fs
 def real_plates(result):
     fs = []
