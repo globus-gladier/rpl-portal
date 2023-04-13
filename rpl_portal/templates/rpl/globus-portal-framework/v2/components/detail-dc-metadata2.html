@@ -64,7 +64,7 @@
   
         {% if forloop.counter0 <  real_plates|length %}
    
-      <tr><td>Measured Plate</td><td><img src=  {{real_plates | index:forloop.counter0}} width = 50%></td></tr>
+      <tr><td style="width=400px">Measured Plate</td><td><img src=  {{real_plates | index:forloop.counter0}} width = 50%></td></tr>
        {% endif %}
     
        {% if forloop.counter0 <  exp_plates|length %}
