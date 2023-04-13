@@ -49,7 +49,8 @@ def exp_plates(result):
         if re.match(".*expected\.png", f):
             
             fs = [f] + fs
-    fs.sort(reverse=True)
+    fs.sort(reverse=True, key=lambda x: int(re.search("\d+", x.split("/")[-1]).group()))
+    print(fs)
     return fs
 def real_plates(result):
     fs = []
@@ -61,7 +62,7 @@ def real_plates(result):
             
           
           fs = [f] + fs
-    fs.sort(reverse=True)
+    fs.sort(reverse=True, key=lambda x: int(re.search("\d+", x.split("/")[-1]).group()))
     return fs
 
 
