@@ -35,7 +35,7 @@ def final_plates(result):
        
         if re.match(".*plate_.\.jpg", f):
             t = f.split('/')[-1]
-            n = re.search("\d+", t)
+            n = re.search("\d+", t).group()
             fs["Plate "+ n] = f
     
     return fs
