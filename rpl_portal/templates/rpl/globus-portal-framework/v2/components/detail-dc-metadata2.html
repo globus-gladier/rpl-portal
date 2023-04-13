@@ -1,9 +1,62 @@
 <table class="table table-striped table-bordered">
- 
+  <tr>
+    
+    <td>Target Color</td>
+    <td>{{result.target_color}}
+    
+    </td>
+   
+  </tr>
+  <tr>
+    
+    <td>Best Color So Far</td>
+    <td>{{result.best_so_far}}
+    
+    </td>
+   
+  </tr>
+  <tr>
+    
+    <td>Minimum Difference So Far </td>
+    <td>{{result.best_diff}}
+    
+    </td>
+   
+  </tr>
+  
+
+  <tr>
+    
+    <td>Total Plates</td>
+    <td>{{result.plate_N}}
+    
+    </td>
+   
+  </tr>
+
+  <tr>
+    
+    <td>Total Iterations</td>
+    <td>{{result.total_iterations}}
+    
+    </td>
+   
+  </tr>
+  <tr>
+    
+    <td>Well Budget</td>
+    <td>{{result.exp_budget}}
+    
+    </td>
+   
+  </tr>
+  
+  <tr>
 
     <td>Runs</td>
    <td> 
-  {%load index%}
+    {% block detail_general_metadata %}
+    {%load index%}
   {%for run in result.runs%}
  
     <table class="table table-striped table-bordered">
@@ -44,7 +97,7 @@
   </tbody>
 </table>
 <table class="table table-striped table-bordered">
-  wf_steps
+  Workflow Steps
   <tbody>
      
     {% for flows in result.wf_steps %}
