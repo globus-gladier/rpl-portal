@@ -1,7 +1,14 @@
 {% extends 'globus-portal-framework/v2/detail-overview.html' %}
 
 {% block detail_search_content %}
-
+<div class="row">
+  <div class="col-md-6">Target Color: <img src={{target_color}} width="20%" height="20%"></div>
+  <div class="col-md-6">Best Color So Far: <img src={{best_color}} width="20%" height="20%"></div>
+</div>
+<div class="row">
+  <div class="col-md-6">Time To Best: {{result.time_to_best}}</div>
+  <div class="col-md-6">Total Time: {{result.total_time}}</div>
+</div>
 <div class="row">
   <div class="col-md-6">
     {% include './components/detail-dc-metadata2.html' %}
