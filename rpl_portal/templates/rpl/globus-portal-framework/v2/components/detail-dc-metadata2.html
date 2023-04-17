@@ -62,13 +62,16 @@
     
     <td>Mixed Colors</td>
     <td>{%for color in result.colors%}
-       {{color}}<br>
+       {{color}} C{{forloop.counter}}<br>
       {% endfor %}
-      <br> <img src={{colors}} width = 50%></td></tr>
+      <br> <img src={{colors}} width = 40%>[C1 C2 C3]</td></tr>
     
     </td>
    
   </tr>
+</tbody>
+</table>
+<table class="table table-striped table-bordered">
   <tr>
 
     <td>Runs</td>
@@ -112,8 +115,7 @@
 
     
   
-  </tbody>
-</table>
+  
 <table class="table table-striped table-bordered">
   Workflow Steps
   <tbody>
