@@ -33,8 +33,9 @@ SEARCH_INDEXES = {
             ("target_color", fields.target_color),
             ("best_color", fields.best_color),
             ("real_plates", fields.real_plates),
-            ("exp_plates", fields.exp_plates)
-
+            ("exp_plates", fields.exp_plates),
+            ("convergence_graph", fields.convergence_graph),
+            ("colors", fields.colors)
             #("exp_label", fields.exp_label)
         ],
         "facets": [

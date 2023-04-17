@@ -65,7 +65,25 @@ def real_plates(result):
     fs.sort(reverse=True, key=lambda x: int(re.search("\d+", x.split("/")[-1]).group()))
     return fs
 
+def convergence_graph(result):
+    fs = []
+    for f in all_files(result):
+        if re.match(".*graph\.png", f):
+            
+          
+            fs = f
+    
+    return fs
 
+def colors(result):
+    fs = []
+    for f in all_files(result):
+        if re.match(".*mixed_colors\.png", f):
+            
+          
+            fs = f
+    
+    return fs
 def target_color(result):
     fs = {}
     for f in all_files(result):
