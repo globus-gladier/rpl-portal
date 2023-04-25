@@ -127,8 +127,12 @@ def results(result):
     return result[0]
     
 def exp_type(result):
-    if "exp_type" in result[0]["project_metadata"]:
-       return result[0]["project_metadata"]["exp_type"]
+    if "project_metadata" in result[0]:
+        if "exp_type" in result[0]["project_metadata"]:
+            return result[0]["project_metadata"]["exp_type"]
+        elif "exp_type" in result[0]:
+            return result[0]["exp_type"]
+    
     return "tests"
 # def exp_label(result):
 #     if result[0]["project_metadata"]["exp_label"]:

@@ -7,6 +7,6 @@ app_name = "rpl-index"
 register_custom_index("rpl_index", ["rpl"])
 
 urlpatterns = [
-    path("<rpl_index:index>/", RPLSearchView.as_view(), name="search"),
+    #path("<rpl_index:index>/", RPLSearchView.as_view(), name="search"),
     # path('<rpl_index:index>/example/', example_view, name='my-cool-example-named-view'),
 ]

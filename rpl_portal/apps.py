@@ -42,7 +42,7 @@ SEARCH_INDEXES = {
             {
                 "name": "Creator",
                 "field_name": "dc.creators.creatorName",
-            },
+            },  
             {
                 "name": "Dates",
                 "field_name": "dc.dates.date",
@@ -62,7 +62,11 @@ SEARCH_INDEXES = {
             }
         ],
         "default_filters": [
-           
+            {
+                "type": "match_all",
+                "field_name": "result.exp_type",
+                "values": [],
+            }
         ]
         
     }
