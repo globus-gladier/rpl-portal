@@ -62,11 +62,7 @@ SEARCH_INDEXES = {
             }
         ],
         "default_filters": [
-            {
-                "type": "match_all",
-                "field_name": "project_metadata.project-slug",
-                "values": ['reports'],
-            }
+           
         ]
         
     }

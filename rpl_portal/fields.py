@@ -4,17 +4,24 @@ import copy
 import re
 
 def title(result):
-    if not result[0].get("dc"):
-        return
-    t = result[0]["project_metadata"]
-    if not ("experiment" in t):
-        """The title for this Globus Search subject"""
+    
+    #t = result[0]["project_metadata"]
+    # if not ("experiment" in t):
+    #     """The title for this Globus Search subject"""
         
         
-        return result[0]["dc"]["titles"][0]["title"]
+    #     return result[0]["dc"]["titles"][0]["title"]
    
-
-    return result[0]["project_metadata"]["experiment"]
+    if "project_metadata" in result[0]:
+        t = result[0]["project_metadata"]
+        if not ("experiment" in t):
+            """The title for this Globus Search subject"""
+            
+            
+            return result[0]["dc"]["titles"][0]["title"]
+        return result[0]["project_metadata"]["experiment"]  
+    return result[0]["experiment"]
+    
 
 
 
@@ -114,7 +121,11 @@ def final_img(result):
     return fs
     return None
 def results(result):
-    return result[0]["project_metadata"]
+   
+    if "project_metadata" in result[0]:
+        return result[0]["project_metadata"]   
+    return result[0]
+    
 def exp_type(result):
     if "exp_type" in result[0]["project_metadata"]:
        return result[0]["project_metadata"]["exp_type"]
