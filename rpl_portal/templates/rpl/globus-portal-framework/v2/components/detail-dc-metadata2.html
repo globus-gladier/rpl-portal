@@ -127,9 +127,16 @@
   <td>
             {% for tkey, tvalue in step.items %}
   
-  {% if tkey != "name"%}
+  {% if tkey != "name" and tkey != "args" %}
     <b>{{tkey |safe}}</b>: {{tvalue}} <br></br>
-    {% endif %}
+    {% elif tkey == "args" %}
+     
+      <div>
+       {% for pkey, pvalue in tvalue.items %}
+        {{pkey}}: {{pvalue}} <br></br>
+        {% endfor %}
+      </div>
+        {% endif %}
     {% endfor %}
   </td>
   </tr>
