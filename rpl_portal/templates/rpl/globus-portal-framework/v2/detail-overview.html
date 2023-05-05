@@ -13,6 +13,7 @@
   <div class="col-md-6">
     {% include './components/detail-dc-metadata2.html' %}
   </div>
+  
 {% if exp_type == "tests" or exp_type == "color_picker" %}   
     <div class="col-md-6">
   {% for key, value in final_plates.items%}
@@ -32,4 +33,95 @@
 {% endif %}
 </div>
 
-{% endblock %}
+
+
+
+    
+    {%load index%}
+  <h1>Runs</h1>
+  <table class="table table-striped table-bordered">
+  <tbody>
+  {%for run in result.runs%}
+  <tr>    
+    <div class="card-header">
+     <h2>Run {{run.run_number}}</h2>
+     <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#run{{run.run_number}}">Expand</button>
+    </div>
+    <div class = "collapse" id="run{{run.run_number}}">
+    <div class="card-body">
+  
+      <table class="table table-striped table-bordered">
+        <tbody>
+    
+          {% if forloop.counter0 <  real_plates|length %}
+     
+        <tr><td>Measured Plate</td><td><img src=  {{real_plates | index:forloop.counter0}} width = 50%></td></tr>
+         {% endif %}
+      
+         {% if forloop.counter0 <  exp_plates|length %}
+     
+         <tr><td>Expected Plate</td><td><img src=  {{exp_plates | index:forloop.counter0}} width = 50%></td></tr>
+          {% endif %}
+    {%for runkey, runvalue in run.items %}
+    <tr>  
+      <td>{{runkey}}  </td>
+      <td> {{runvalue}} 
+       
+    </tr>    
+      
+        {% endfor %}
+      
+      </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+  
+    
+
+ 
+
+  </tr>
+      {% endfor %}
+    </tbody>
+ </table>
+
+
+
+    
+<h1>Workflow Steps</h1>
+  
+<table class="table table-striped table-bordered">
+ 
+  <tbody>
+     
+    {% for flows in result.wf_steps %}
+          {% for step in flows%}  
+          <tr><td>{{step.name}}</td>
+  <td>
+            {% for tkey, tvalue in step.items %}
+  
+  {% if tkey != "name" and tkey != "args" %}
+  <text style="font-weight:bold"> {{tkey}}</text>: {{tvalue}} <br>
+     
+        {% endif %}
+    {% endfor %}
+    <div>
+      {% for pkey, pvalue in step.args.items %}
+  <text style="font-weight:bold"> {{pkey}}</text>: {{pvalue}} <br>
+       {% endfor %}
+     </div>
+  
+  </td>
+  </tr>
+  <tr>
+  </tr>
+    {% endfor %}
+   
+  {% endfor %}
+ 
+</tbody>
+</table>
+  {% endblock %}
+  
+ 
