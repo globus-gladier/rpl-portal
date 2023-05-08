@@ -2,132 +2,149 @@
 
 {% block detail_search_content %}
 <div class="row">
-  <div class="col-md-6" style="text-align:center"><div class="card"><h1 style="padding-top:10px">Target Color</h1> <img src={{target_color}} width="20%" height="60%" style="margin:auto; padding-bottom:10px"><h2>Total Time: {{result.total_time}}</h2></div></div>
-  <div class="col-md-6" style="text-align:center"><div class="card"><h1 style="padding-top:10px">Best Color So Far</h1> <img src={{best_color}} width="20%" height="60%" style="margin:auto; padding-bottom:10px"><h2>Time To Best: {{result.time_to_best}}</h2></div></div>
+  <div class="col-md-6" style="text-align:center">
+    <div class="card">
+      <h1 style="padding-top:10px">Target Color</h1> <img src={{target_color}} width="20%" height="60%"
+        style="margin:auto; padding-bottom:10px">
+      <h2>Total Time: {{result.total_time}}</h2>
+    </div>
+  </div>
+  <div class="col-md-6" style="text-align:center">
+    <div class="card">
+      <h1 style="padding-top:10px">Best Color So Far</h1> <img src={{best_color}} width="20%" height="60%"
+        style="margin:auto; padding-bottom:10px">
+      <h2>Time To Best: {{result.time_to_best}}</h2>
+    </div>
+  </div>
 </div>
 
 <div class="row" style="padding-left:30%; margin-bottom:20px">
   <img src={{convergence_graph}} width="60%" height="60%">
- </div>
+</div>
 <div class="row">
   <div class="col-md-6">
     {% include './components/detail-dc-metadata2.html' %}
   </div>
-  
-{% if exp_type == "tests" or exp_type == "color_picker" %}   
+
+  {% if exp_type == "tests" or exp_type == "color_picker" %}
+  <div class="col-md-6">
+    {% for key, value in final_plates.items%}
+
+
+    <div style="padding-bottom:20px">
+      <h1>{{key}}</h1>
+      <img src={{value}} width="50%">
+    </div>
+    {% endfor %}
+    {% elif exp_type == "pcr" %}
     <div class="col-md-6">
-  {% for key, value in final_plates.items%}
- 
-    
-   <div style="padding-bottom:20px"> 
-    <h1>{{key}}</h1>
-    <img src={{value}} width="50%" >
+
+      <div style="padding-bottom:20px">
+        <img src={{final_img}} width="50%">
+      </div>
+      {% endif %}
+    </div>
+
+
   </div>
-{% endfor %}
-{% elif exp_type == "pcr" %}
-<div class="col-md-6">
-  
-   <div style="padding-bottom:20px"> 
-    <img src={{final_img}} width="50%" >
-  </div>
-{% endif %}
 </div>
 
 
+{%load index%}
+<div class="col-md-12">
+  <div class="row" width="100%">
 
-
-    
-    {%load index%}
-    <div class="row">
-  
-  <h1>Runs</h1>
-  <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#runtable">Expand</button>
+    <h1>Runs</h1>
+    <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#runtable">Expand</button>
   </div>
-  <div class="row">
-  <div class = "collapse" id="runtable">
 
-  
-  <table class="table table-striped table-bordered">
-  <tbody>
-  {%for run in result.runs%}
-  <tr>    
-    <td>
-    <div class="card-header">
-     <h2>Run {{run.run_number}}</h2>
-     <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#run{{run.run_number}}">Expand</button>
-    </div>
-    <div class = "collapse" id="run{{run.run_number}}">
-    <div class="card-body">
-  
+
+  <div class="row" width="100%">
+    <div class="collapse" id="runtable">
       <table class="table table-striped table-bordered">
         <tbody>
-    
-          {% if forloop.counter0 <  real_plates|length %}
-     
-        <tr><td>Measured Plate</td><td><img src=  {{real_plates | index:forloop.counter0}} width = 50%></td></tr>
-         {% endif %}
-      
-         {% if forloop.counter0 <  exp_plates|length %}
-     
-         <tr><td>Expected Plate</td><td><img src=  {{exp_plates | index:forloop.counter0}} width = 50%></td></tr>
+          {%for run in result.runs%}
+          <tr>
+            <td>
+              <div class="card-header">
+                <h2>Run {{run.run_number}}</h2>
+                <button class="btn btn-primary" data-toggle="collapse" type="button"
+                  data-target="#run{{run.run_number}}">Expand</button>
+              </div>
+              <div class="collapse" id="run{{run.run_number}}">
+                <div class="card-body" width="200%">
+                  <table class="table table-striped table-bordered">
+                    <tbody>
+
+                      {% if forloop.counter0 < real_plates|length %} <tr>
+                        <td>Measured Plate</td>
+                        <td><img src={{real_plates | index:forloop.counter0}} width=50%></td>
+          </tr>
           {% endif %}
-    {%for runkey, runvalue in run.items %}
-    <tr>  
-      <td>{{runkey}}  </td>
-      <td> {{runvalue}} 
-       
-    </tr>    
-      
-        {% endfor %}
+          {% if forloop.counter0 < exp_plates|length %} <tr>
+            <td>Expected Plate</td>
+            <td><img src={{exp_plates | index:forloop.counter0}} width=50%></td>
+            </tr>
+            {% endif %}
+            {%for runkey, runvalue in run.items %}
+            <tr>
+              <td>{{runkey}} </td>
+              <td> {{runvalue}}
+
+            </tr>
+
+            {% endfor %}
         </tbody>
-        </table>
-      </div>
+      </table>
     </div>
+  </div>
   </td>
-      </tr>
-      
-      {% endfor %}
-    </tbody>
- </table>
+  </tr>
+
+  {% endfor %}
+  </tbody>
+  </table>
 </div>
 </div>
+</div>
+<div class="col-md-12">
 <div class="row">
 
-    
-<h1>Workflow Steps</h1>
-  
-<table class="table table-striped table-bordered">
- 
-  <tbody>
-     
-    {% for flows in result.wf_steps %}
-          {% for step in flows%}  
-          <tr><td>{{step.name}}</td>
-  <td>
-            {% for tkey, tvalue in step.items %}
-  
-  {% if tkey != "name" and tkey != "args" %}
-  <text style="font-weight:bold"> {{tkey}}</text>: {{tvalue}} <br>
-     
-        {% endif %}
-    {% endfor %}
-    <div>
-      {% for pkey, pvalue in step.args.items %}
-  <text style="font-weight:bold"> {{pkey}}</text>: {{pvalue}} <br>
-       {% endfor %}
-     </div>
-  
-  </td>
-  </tr>
-  <tr>
-  </tr>
-    {% endfor %}
-   
-  {% endfor %}
- 
-</tbody>
-</table>
+
+  <h1>Workflow Steps</h1>
+
+  <table class="table table-striped table-bordered">
+
+    <tbody>
+
+      {% for flows in result.wf_steps %}
+      {% for step in flows%}
+      <tr>
+        <td>{{step.name}}</td>
+        <td>
+          {% for tkey, tvalue in step.items %}
+
+          {% if tkey != "name" and tkey != "args" %}
+          <text style="font-weight:bold"> {{tkey}}</text>: {{tvalue}} <br>
+
+          {% endif %}
+          {% endfor %}
+          <div>
+            {% for pkey, pvalue in step.args.items %}
+            <text style="font-weight:bold"> {{pkey}}</text>: {{pvalue}} <br>
+            {% endfor %}
+          </div>
+
+        </td>
+      </tr>
+      <tr>
+      </tr>
+      {% endfor %}
+
+      {% endfor %}
+
+    </tbody>
+  </table>
 </div>
-  {% endblock %}
-  
- 
+</div>
+{% endblock %}
