@@ -54,12 +54,12 @@
 <div class="col-md-12">
   <div class="row" width="100%">
 
-    <h1>Runs</h1>
-    <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#runtable">Expand</button>
+    <h1 style="padding-right:10px">Runs</h1>
+    <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#runtable">Toggle</button>
   </div>
 
 
-  <div class="row" width="100%">
+  
     <div class="collapse" id="runtable">
       <table class="table table-striped table-bordered">
         <tbody>
@@ -68,8 +68,12 @@
             <td>
               <div class="card-header">
                 <h2>Run {{run.run_number}}</h2>
+                
+                <h3>Best from Run: {{run.best_on_plate}}  Run Best Diff: {{run.plate_best_diff}}  </h3> 
+              
                 <button class="btn btn-primary" data-toggle="collapse" type="button"
-                  data-target="#run{{run.run_number}}">Expand</button>
+                  data-target="#run{{run.run_number}}">Toggle</button>
+                 
               </div>
               <div class="collapse" id="run{{run.run_number}}">
                 <div class="card-body" width="200%">
@@ -96,7 +100,7 @@
             {% endfor %}
         </tbody>
       </table>
-    </div>
+    
   </div>
   </td>
   </tr>
@@ -107,14 +111,15 @@
 </div>
 </div>
 </div>
-<div class="col-md-12">
+
 <div class="row">
 
 
-  <h1>Workflow Steps</h1>
-
+  <h1 style="padding-right:10px">Workflow Steps</h1>
+  <button class="btn btn-primary" data-toggle="collapse" type="button" data-target="#wftable">Toggle</button>
+  <div class="collapse" id="wftable">
   <table class="table table-striped table-bordered">
-
+  
     <tbody>
 
       {% for flows in result.wf_steps %}
@@ -145,6 +150,6 @@
 
     </tbody>
   </table>
-</div>
+  <div class="collapse" id="runtable">
 </div>
 {% endblock %}
