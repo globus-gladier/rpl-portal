@@ -121,10 +121,19 @@ def final_img(result):
     return fs
     return None
 def results(result):
-   
     if "project_metadata" in result[0]:
-        return result[0]["project_metadata"]   
-    return result[0]
+        val = result[0]["project_metadata"]
+        val["best_diff"] = round(val["best_diff"], 3)
+        return val
+    val = result[0]
+    val["best_diff"] = round(val["best_diff"], 3)
+    for run in val["runs"]:
+        print(run)
+        run["plate_best_diff"] = round(run["plate_best_diff"] , 3)
+        run["differences"] = [round(x, 3) for x in run["differences"]]    
+        run["exp_volumes"] = [[round(val, 3) for val in x] for x in run["exp_volumes"]]
+        run["tried_values"] = [[round(val, 3) for val in x] for x in run["tried_values"]]
+    return val    
     
 def exp_type(result):
     if "project_metadata" in result[0]:
