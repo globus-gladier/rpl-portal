@@ -128,7 +128,6 @@ def results(result):
     val = result[0]
     val["best_diff"] = round(val["best_diff"], 3)
     for run in val["runs"]:
-        print(run)
         run["plate_best_diff"] = round(run["plate_best_diff"] , 3)
         run["differences"] = [round(x, 3) for x in run["differences"]]    
         run["exp_volumes"] = [[round(val, 3) for val in x] for x in run["exp_volumes"]]
